@@ -18,4 +18,14 @@ $password = $_POST['password'];
 // echo $username;
 // echo $password;
 
+$sql = "SELECT * FROM user WHERE username = `$username` AND password = `$password`";
+$result = mysqli_query($conn,$sql);
+$row = mysqli_fetch_array($result);
+if($row['username']==$username && $row['password']){
+    echo "Welcome " .$username. " you are successfully Logged in!!";
+}else{
+    echo "<script>alert('check your login details')</script>";
+    echo "<script>location.replace('index.html')</script>";
+
+}
 ?>
