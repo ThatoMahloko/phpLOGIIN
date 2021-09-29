@@ -21,6 +21,9 @@ $password = $_POST['password'];
 $sql = "SELECT * FROM user WHERE username = `$username` AND password = `$password`";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
+if($username == "" && $password =""){
+    header('location:index.html');
+}
 if($row['username']==$username && $row['password']){
     echo "Welcome " .$username. " you are successfully Logged in!!";
 }else{
